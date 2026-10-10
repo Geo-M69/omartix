@@ -7,8 +7,6 @@
 
 > **Beta software.** The current target is `v0.1.0-beta1`. NVIDIA laptop and VM-based AMD paths have validation coverage; Intel support is still limited. Review the [support matrix](artix-hypr-remix/BETA_SUPPORT_MATRIX.md) and [known issues](artix-hypr-remix/MILESTONE6_KNOWN_ISSUES.md) before installing.
 
-![Omartix desktop](artix-hypr-remix/docs/screenshots/screenshot-01-first-login-geoartix-20260614.png)
-
 ## What it sets up
 
 - Hyprland, Waybar, Mako, PipeWire/WirePlumber, portals, lock/idle, screenshot, clipboard, and theming components
