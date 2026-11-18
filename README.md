@@ -3,9 +3,9 @@
 [![Quality gate](https://github.com/Geo-M69/artix-installer/actions/workflows/artix-hypr-remix-quality-gate.yml/badge.svg)](https://github.com/Geo-M69/artix-installer/actions/workflows/artix-hypr-remix-quality-gate.yml)
 [![Framework smoke](https://github.com/Geo-M69/artix-installer/actions/workflows/artix-hypr-remix-framework-smoke.yml/badge.svg)](https://github.com/Geo-M69/artix-installer/actions/workflows/artix-hypr-remix-framework-smoke.yml)
 
-**Omartix** is a phase-based installer for a polished Hyprland desktop on **Artix Linux with OpenRC**. It provides an Artix-native alternative to systemd-oriented desktop workflows, with a TTY-first session by default, optional `greetd`, managed configuration, and recovery tooling.
+**Omartix (Artix Hypr Remix)** is a phase-based installer for a polished Hyprland desktop on **Artix Linux with OpenRC**. It provides an Artix-native alternative to systemd-oriented desktop workflows, with a TTY-first session by default, optional `greetd`, managed configuration, and recovery tooling.
 
-> **Beta software.** The current target is `v0.1.0-beta1`. NVIDIA laptop and VM-based AMD paths have validation coverage; Intel support is still limited. Review the [support matrix](artix-hypr-remix/BETA_SUPPORT_MATRIX.md) and [known issues](artix-hypr-remix/MILESTONE6_KNOWN_ISSUES.md) before installing.
+> **Beta software.** The `v0.2.0-beta2` framework release candidate has recorded delivery validation. Framework-delivery readiness does not mean the full Phase 3 product exit gate is complete. NVIDIA laptop and VM-based AMD paths have validation coverage; Intel support is still limited. Review the [release notes](artix-hypr-remix/RELEASE_NOTES.md), [support matrix](artix-hypr-remix/BETA_SUPPORT_MATRIX.md), and [known issues](artix-hypr-remix/MILESTONE6_KNOWN_ISSUES.md) before installing.
 
 ## What it sets up
 
@@ -54,7 +54,7 @@ See the [installer reference](artix-hypr-remix/README.md#reference-all-installer
 
 ## After installation
 
-On first login, use `Super` + `K` to open the desktop menu. The installer creates the `ahr` command namespace for common maintenance tasks:
+On first login, use `Super` + `Alt` + `Space` to open the desktop menu, or `Super` + `K` to view keybindings. The installer creates the `ahr` command namespace for common maintenance tasks:
 
 ```bash
 ahr repair --dry-run
@@ -98,4 +98,4 @@ Please open an issue before substantial changes to installer behavior, hardware 
 
 ## License
 
-This repository does not currently declare a project-wide license. The bundled [`omarchy/`](omarchy/) reference directory has its own [license](omarchy/LICENSE). If you need to reuse or redistribute material from this repository, please open an issue with the maintainer first.
+This repository does not currently declare a project-wide license. If you need to reuse or redistribute material from this repository, please open an issue with the maintainer first.
