@@ -346,10 +346,11 @@ Rollback uses the corresponding durable
 A fresh `--rollback` (or `--recover`) validates the rollback transaction, its
 exact backup association, and any linked failed-apply transaction before
 finalizing only. It records `phase=rolled_back`, `completion=rolled_back` on
-the rollback transaction and `phase=resolved_by_rollback`,
-`completion=resolved_by_rollback` on the linked failed apply. Missing or
-mismatched links fail safely before an archive is replayed or an unrelated
-backup can be selected.
+the rollback transaction and, only if linked to a failed apply,
+`phase=resolved_by_rollback`, `completion=resolved_by_rollback` on that failed
+apply. A manual rollback of a committed apply leaves the committed apply record
+unchanged. Missing or mismatched links fail safely before an archive is replayed
+or an unrelated backup can be selected.
 
 Rollback first archives the installed targets under `phase=backup_in_progress`.
 An archive failure stops before restoration starts. `--recover` prioritizes
@@ -413,8 +414,9 @@ stdout/stderr in the transaction, `doctor_output_status=unavailable_legacy` and
 `doctor.log` explicitly record that limitation; retain the original live
 validation transcript. New rollbacks use `doctor_output_status=captured`.
 
-Check that the rollback is `rolled_back` and its exact linked apply is
-`resolved_by_rollback`, then run normal `ahr update-framework --apply` against
+Check that the rollback is `rolled_back` and, if it links a failed apply, that
+the exact linked apply is `resolved_by_rollback`. A committed apply remains
+`committed`; then run normal `ahr update-framework --apply` against
 the published source. Apply's existing health gate is unchanged: an unresolved
 host-health problem can still make that new apply fail. Do not alter transaction
 state by hand or change service policy to bypass validation. Repeat the live

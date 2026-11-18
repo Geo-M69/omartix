@@ -2,8 +2,8 @@
 
 ## v0.2.0-beta2 — Phase 3 framework release candidate
 
-**Status:** Pending commit, publication, and public-source framework-delivery
-validation. This is not a published release.
+**Status:** Public-source framework-delivery validation of `68b7532` was
+recorded on 2026-09-07. This candidate is not tagged or published.
 **Framework metadata:** `0.2.0-beta2`, `beta` channel, with the existing public
 source `https://github.com/Geo-M69/artix-installer.git`.
 **Base system:** Artix Linux with OpenRC
@@ -23,21 +23,30 @@ source `https://github.com/Geo-M69/artix-installer.git`.
   after the selected snapshot are removed, while unrelated user links are
   preserved.
 
-### Required public-source validation
+### Public-source validation record
 
-After the release commit is reachable from the configured public source, run
-the normal updater flow on the target host:
+The 2026-09-07 live transaction records directly confirm committed applies
+`tx-wXBhTBJ3` and `tx-03ibl18k` of `68b7532`, with completed manual rollback
+`tx-EB26D1uj` against the initial backup. The initial apply remains committed.
+Rollback recorded a degraded doctor result; its captured output identifies
+inactive Bluetooth, which the restored older policy treated as required.
+Pre-apply and post-rollback backup contents compared equal for the framework
+targets, metadata, migration snapshot, and namespace manifest. All transaction
+records present at inspection had terminal completion values.
 
-```bash
-ahr update-framework --dry-run
-ahr update-framework --apply
-ahr update-framework --rollback
-ahr update-framework --apply
-```
+The earlier live report also stated exact live restoration and passing final
+doctor and baseline smoke. Those observations lack a preserved contemporaneous
+transcript and remain reported rather than directly verified. See the
+[sanitized evidence and comparison limits](docs/validation/2026-09-07-beta2-framework/README.md).
+This evidence supports beta2 framework-delivery readiness for the tested
+revision; it does not close the full Phase 3 product exit gate or establish a
+new release revision without review.
 
-Record the installed metadata and confirm the Phase 3 catalog/CLI/menu,
-share-picker migration, and namespace state after both applies. The release
-must not be tagged or announced as validated until this flow passes.
+On 2026-11-18, current host doctor and baseline smoke both passed with
+optional-service and MIME warnings. The installed framework content and
+terminal transaction inventory were also checked; see the
+[current health record](docs/validation/2026-11-18-beta2-health/README.md).
+These checks do not replace the missing September transcripts.
 
 ---
 

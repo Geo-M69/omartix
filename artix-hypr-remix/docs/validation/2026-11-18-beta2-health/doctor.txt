@@ -1,0 +1,150 @@
+
+=== Required Commands ===
+  OK: pacman
+  OK: grim
+  OK: hyprctl
+  OK: rc-update
+  OK: rc-service
+
+=== Desktop Runtime ===
+  OK: polkit-gnome-authentication-agent-1 (via /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1)
+  OK: xdg-desktop-portal (via /usr/lib/xdg-desktop-portal)
+  OK: xdg-desktop-portal-hyprland (via /usr/lib/xdg-desktop-portal-hyprland)
+
+=== Capture Tools ===
+  OK: grim
+  OK: slurp
+  OK: jq
+  OK: gpu-screen-recorder
+  OK: wl-clipboard
+  OK: cliphist
+
+=== Menu Backend ===
+  OK: wofi
+
+=== Default Application Extras ===
+  OK: default calculator (gnome-calculator) available
+
+=== Advertised Capture Actions ===
+  OK: Color Picker (hyprpicker)
+  WARN: SwayOSD not installed (optional; volume/brightness/media controls do not depend on it)
+
+=== OpenRC Services ===
+  OK: dbus (default runlevel, running)
+  OK: elogind (default runlevel, running)
+  OK: NetworkManager (default runlevel, running)
+  OK: supported network manager active: NetworkManager
+  OK: non-loopback network address configured
+  OK: default route configured
+  WARN: optional service bluetoothd is enabled but not running
+  OK: docker
+  WARN: optional service cupsd is enabled but not running
+  WARN: optional service avahi-daemon is enabled but not running
+
+=== MIME Defaults ===
+  OK: xdg-settings
+  OK: xdg-mime
+  OK: xdg-open
+  OK: Default browser (text/html) → app.zen_browser.zen.desktop
+  OK: Default browser (x-scheme-handler/http) → app.zen_browser.zen.desktop
+  OK: Default file manager (inode/directory) → codium.desktop
+  OK: Default PDF viewer (application/pdf) → app.zen_browser.zen.desktop
+  OK: Default image viewer (image/png) → app.zen_browser.zen.desktop
+  OK: Default video player (video/mp4) → mpv.desktop
+  OK: Default archive (application/zip) → org.gnome.FileRoller.desktop
+
+=== Extended MIME Matrix ===
+  OK: Default archive (application/gzip) → org.gnome.FileRoller.desktop
+  OK: Default archive (application/x-7z-compressed) → org.gnome.FileRoller.desktop
+  OK: Default archive (application/x-bzip) → org.gnome.FileRoller.desktop
+  WARN: Default archive (application/x-bzip2) — no default handler set
+  OK: Default archive (application/x-rar-compressed) → org.gnome.FileRoller.desktop
+  OK: Default archive (application/x-tar) → org.gnome.FileRoller.desktop
+  OK: Default audio (audio/flac) → app.zen_browser.zen.desktop
+  OK: Default audio (audio/mpeg) → mpv.desktop
+  OK: Default audio (audio/ogg) → app.zen_browser.zen.desktop
+  WARN: Default audio (audio/x-flac) — no default handler set
+  OK: Default audio (audio/x-vorbis) → mpv.desktop
+  OK: Default audio (audio/x-wav) → mpv.desktop
+  OK: Default image (image/bmp) → imv-dir.desktop
+  OK: Default image (image/gif) → app.zen_browser.zen.desktop
+  OK: Default image (image/jpeg) → app.zen_browser.zen.desktop
+  OK: Default image (image/tiff) → imv-dir.desktop
+  OK: Default image (image/webp) → app.zen_browser.zen.desktop
+  OK: Default editor (text/markdown) → org.onlyoffice.desktopeditors.desktop
+  OK: Default editor (text/plain) → org.onlyoffice.desktopeditors.desktop
+  WARN: Default editor (text/x-markdown) — no default handler set
+  OK: Default video (video/ogg) → app.zen_browser.zen.desktop
+  OK: Default video (video/quicktime) → mpv.desktop
+  OK: Default video (video/webm) → app.zen_browser.zen.desktop
+  OK: Default video (video/x-matroska) → mpv.desktop
+  OK: Default video (video/x-msvideo) → mpv.desktop
+  WARN: Default directory (x-directory/normal) — no default handler set
+  OK: Default browser (x-scheme-handler/https) → app.zen_browser.zen.desktop
+
+=== Theme State ===
+  OK: current theme directory matches tokyo-night
+  OK: current background symlink is valid
+
+=== Toggle State ===
+  OK: Nightlight — disabled
+  OK: Idle lock — disabled
+  OK: Notification silencing — disabled
+  OK: Waybar position — top
+
+=== Framework Version ===
+  OK: version 0.2.0-beta2 (beta)
+
+=== Namespace Links ===
+  OK: ahr -> <HOME>/.config/artix-hypr-remix/bin/ahr
+  OK: ahr-flatpak -> <HOME>/.config/artix-hypr-remix/bin/ahr-flatpak
+  OK: ahr-update -> <HOME>/.config/artix-hypr-remix/bin/ahr-update
+  OK: ahr-update-framework -> <HOME>/.config/artix-hypr-remix/bin/ahr-update-framework
+  OK: ahr-update-available -> <HOME>/.config/artix-hypr-remix/bin/ahr-update-available
+  OK: ahr-restore-component -> <HOME>/.config/artix-hypr-remix/bin/ahr-restore-component
+  OK: ahr-doctor -> <HOME>/.config/artix-hypr-remix/bin/ahr-doctor
+  OK: 7/7 namespace links healthy
+
+=== Framework Commands ===
+  OK: ahr-menu
+  OK: ahr-menu-keybindings
+  OK: ahr-launch-terminal
+  OK: ahr-launch-apps
+  OK: ahr-launch-browser
+  OK: ahr-launch-files
+  OK: ahr-default-browser
+  OK: ahr-default-terminal
+  OK: ahr-default-editor
+  OK: ahr-repair
+  OK: ahr-system-lock
+  OK: ahr-toggle
+  OK: ahr-toggle-idle
+  OK: ahr-restore-idle
+  OK: ahr-restore-nightlight
+  OK: ahr-launch-wallpaper-session
+  OK: ahr-capture-screenshot
+  OK: ahr-capture-picker
+  OK: ahr-theme
+  OK: ahr-flatpak
+  OK: ahr-status
+  OK: ahr-doctor
+  OK: ahr-update
+  OK: ahr-update-available
+  OK: ahr-update-framework
+  OK: ahr-restore-component
+  OK: namespace-install.sh
+  OK: migrate.sh
+  OK: ahr-validate-managed-paths.sh
+  OK: ahr-lib.sh (library)
+  OK: ahr-version.sh (library)
+  OK: ahr-cache.sh (library)
+  OK: ahr-backup-helper.sh (library)
+  OK: ahr-managed-paths.sh (library)
+  OK: ahr-theme-lib.sh (library)
+  OK: ahr-toggle-lib.sh (library)
+  OK: ahr-font-lib.sh (library)
+  OK: ahr-flatpak-catalog-lib.sh (library)
+  OK: ahr-flatpak-runtime-lib.sh (library)
+  OK: ahr-migrate
+
+All checks passed.

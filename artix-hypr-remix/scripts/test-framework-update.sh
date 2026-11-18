@@ -3200,6 +3200,16 @@ tc65_apply_exit=0
 run_ahr "$tc65_home" "$UPDATE_FRAMEWORK" --apply >/dev/null 2>&1 || tc65_apply_exit=$?
 (( tc65_apply_exit == 0 )) && pass "apply succeeds with pre-existing exact local-bin alias" || fail "apply failed (exit $tc65_apply_exit)"
 
+# A manual rollback of a committed apply must not rewrite its terminal record.
+tc65_tx_dir="$tc65_home/.local/state/artix-hypr-remix/framework-transactions"
+tc65_apply_state="$(find "$tc65_tx_dir" -mindepth 2 -maxdepth 2 -name state -print -quit)"
+if [[ -f "$tc65_apply_state" ]] && grep -qx 'action=apply' "$tc65_apply_state" && grep -qx 'phase=complete' "$tc65_apply_state" && grep -qx 'completion=committed' "$tc65_apply_state"; then
+  cp "$tc65_apply_state" "$tmp_root/tc65-committed-state"
+  pass "initial apply has committed terminal state"
+else
+  fail "initial apply did not commit"
+fi
+
 # The backup snapshot must have captured the alias record with its exact target.
 tc65_backup="$(find "$tc65_home/.local/state/artix-hypr-remix/framework-backups" -mindepth 1 -maxdepth 1 -type d -print -quit)"
 tc65_snap="$tc65_backup/derived-namespace-links"
@@ -3222,6 +3232,13 @@ tc65_rb_exit=0
 run_ahr "$tc65_home" "$UPDATE_FRAMEWORK" --rollback >/dev/null 2>&1 || tc65_rb_exit=$?
 (( tc65_rb_exit == 0 )) && pass "rollback succeeds with exact local-bin alias in snapshot" || fail "rollback failed (exit $tc65_rb_exit)"
 
+if [[ -f "$tmp_root/tc65-committed-state" ]] && cmp -s "$tmp_root/tc65-committed-state" "$tc65_apply_state"; then pass "manual rollback leaves committed apply record immutable"; else fail "manual rollback changed committed apply record"; fi
+tc65_rollback_state=""
+for tc65_state in "$tc65_tx_dir"/*/state; do
+  if grep -qx 'action=rollback' "$tc65_state"; then tc65_rollback_state="$tc65_state"; fi
+done
+if [[ -f "$tc65_rollback_state" ]] && grep -qx 'phase=rolled_back' "$tc65_rollback_state" && grep -qx 'completion=rolled_back' "$tc65_rollback_state"; then pass "manual rollback has its own rolled-back terminal state"; else fail "manual rollback did not reach its terminal state"; fi
+
 [[ "$(readlink "$tc65_local/omarchy" 2>/dev/null || true)" == "$tc65_local/ahr" ]] && pass "rollback restores pre-existing omarchy alias exactly" || fail "rollback did not restore the exact-target omarchy alias"
 [[ "$(readlink "$tc65_local/ahr" 2>/dev/null || true)" == "$tc65_fw/bin/ahr" ]] && pass "rollback restores ahr command link exactly" || fail "rollback changed the ahr command link"
 [[ ! -e "$tc65_local/$tc65_forward_name" && ! -L "$tc65_local/$tc65_forward_name" ]] && pass "rollback removes forward-added managed link" || fail "forward-added managed link remained"
@@ -3235,6 +3252,15 @@ tc65_reapply_exit=0
 run_ahr "$tc65_home" "$UPDATE_FRAMEWORK" --apply >/dev/null 2>&1 || tc65_reapply_exit=$?
 (( tc65_reapply_exit == 0 )) && pass "reapply after rollback succeeds" || fail "reapply after rollback failed (exit $tc65_reapply_exit)"
 [[ "$(readlink "$tc65_local/omarchy" 2>/dev/null || true)" == "$tc65_local/ahr" ]] && pass "omarchy alias remains exact across reapply" || fail "reapply disturbed the exact-target omarchy alias"
+
+if [[ -f "$tmp_root/tc65-committed-state" ]] && cmp -s "$tmp_root/tc65-committed-state" "$tc65_apply_state"; then pass "reapply preserves original committed apply record"; else fail "reapply changed original committed apply record"; fi
+tc65_committed=0
+tc65_terminal=0
+for tc65_state in "$tc65_tx_dir"/*/state; do
+  if grep -qx 'action=apply' "$tc65_state" && grep -qx 'phase=complete' "$tc65_state" && grep -qx 'completion=committed' "$tc65_state"; then ((tc65_committed+=1)); ((tc65_terminal+=1));
+  elif grep -qx 'action=rollback' "$tc65_state" && grep -qx 'phase=rolled_back' "$tc65_state" && grep -qx 'completion=rolled_back' "$tc65_state"; then ((tc65_terminal+=1)); fi
+done
+if (( tc65_committed == 2 && tc65_terminal == 3 )) && [[ "$(find "$tc65_tx_dir" -mindepth 2 -maxdepth 2 -name state | wc -l)" -eq 3 ]]; then pass "reapply commits and all three transactions are terminal"; else fail "unexpected transaction states after reapply"; fi
 
 echo ""
 echo "=== TC66: Legacy updater bootstrap snapshot compatibility ==="

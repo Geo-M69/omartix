@@ -1,0 +1,3 @@
+Sanitized excerpts from captured rollback doctor.log; other checks omitted.
+  FAIL: bluetoothd installed but not running
+Some checks failed. Run ahr repair --dry-run for fixable issues.

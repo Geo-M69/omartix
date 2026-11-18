@@ -1,0 +1,32 @@
+Read-only diff -qr comparison of first apply backup against final reapply backup (post-rollback):
+bin: equal
+migrations: equal
+docs: equal
+hooks: equal
+first-run.d: equal
+default: equal
+framework.json: equal
+migration-snapshot: equal
+derived-migration-state: equal
+derived-namespace-links: equal
+sha256 framework.json: 723c61220deab50be877720cdb5e87a4335e3aa49b617eb3942e5412e958463e
+sha256 derived-migration-state: 1e8249f1fcb19e593e9206a8ffaaab823dfe8faf65441dfe81505497957acd25
+sha256 derived-namespace-links: 75cc165493c9513db376004366f18719aa274842c38f2ce6f70aa57dea9c47d9
+
+All transaction state files present at inspection (action / phase / completion):
+tx-03ibl18k apply / complete / committed
+tx-1jvKTx41 apply / complete / committed
+tx-1y01JQ7W apply / complete / committed
+tx-2TrN7XmQ apply / complete / committed
+tx-EB26D1uj rollback / rolled_back / rolled_back
+tx-EjJYTXwm apply / resolved_by_rollback / resolved_by_rollback
+tx-F43VbTLU apply / resolved_by_rollback / resolved_by_rollback
+tx-FKxuY7EE rollback / rolled_back / rolled_back
+tx-Y9NHrXgx rollback / rolled_back / rolled_back
+tx-dXoLUbq7 apply / complete / committed
+tx-ewrABu7z rollback / rolled_back / rolled_back
+tx-mYYlAxPN rollback / rolled_back / rolled_back
+tx-tvvOGEmq rollback / rolled_back / rolled_back
+tx-vD9sa88z apply / complete / committed
+tx-wXBhTBJ3 apply / complete / committed
+tx-zFoDkCxU apply / resolved_by_rollback / resolved_by_rollback

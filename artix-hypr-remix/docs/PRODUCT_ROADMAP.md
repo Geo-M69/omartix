@@ -406,7 +406,9 @@ framework-owned targets; an idempotent migration delivers the two
 backup; and rollback reconciles AHR-managed namespace links exactly to its
 snapshot without touching unrelated user links. The `beta` channel continues
 to use the configured public repository source. Public-source
-apply→rollback→reapply validation remains required before release publication.
+apply→rollback→reapply validation for `68b7532` was recorded for
+2026-09-07 with evidence limits (see `RELEASE_NOTES.md`). This release-candidate
+evidence does not complete the broader Phase 3 exit gate below.
 
 ### Catalog entry validation status
 

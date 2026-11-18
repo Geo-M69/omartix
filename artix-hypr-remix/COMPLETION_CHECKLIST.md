@@ -8,8 +8,10 @@ Current estimate: about 95% complete overall, with the project in Milestone 7 po
 
 ## Phase 3 Framework Release Candidate
 
-Status: `0.2.0-beta2` is prepared for public-source framework-delivery
-validation; it is not published or tagged yet.
+Status: public-source framework-delivery validation for revision `68b7532`
+is recorded with its evidence limits; `v0.2.0-beta2` is not published or
+tagged. This release-candidate validation does not close the broader Phase 3
+product exit gate.
 
 - [x] Deliver the Phase 3 catalog, libraries, `ahr flatpak` CLI, and menu
   integration through framework-managed targets.
@@ -19,12 +21,15 @@ validation; it is not published or tagged yet.
   removing unrelated user links.
 - [x] Cover migration delivery and forward-added managed-link rollback in the
   framework updater regression suite.
-- [x] Run the 16-stage offline quality gate for the candidate.
+- [x] Run the 18-stage offline quality gate for the candidate (`--no-aur`).
 - [x] Separate durable rollback completion from post-rollback doctor health,
   preserving provenance checks, health evidence, and crash-safe linked resolution.
-- [ ] Run a real public-source apply → rollback → reapply validation after the
-  release commit is reachable from `https://github.com/Geo-M69/artix-installer.git`.
-- [ ] Tag and publish `v0.2.0-beta2` only after that validation is recorded.
+- [x] Record the 2026-09-07 public-source apply → rollback → reapply
+  validation of `68b7532`; see `RELEASE_NOTES.md` for evidence and limits.
+- [x] Record current host doctor, smoke, framework consistency, and transaction
+  checks; see `docs/validation/2026-11-18-beta2-health/README.md`.
+- [ ] Tag and publish `v0.2.0-beta2` after reviewing the final release revision
+  and validation records.
 
 ## Milestone 0 - Target And Support Contract
 

@@ -1,0 +1,141 @@
+[1/9] Checking required commands
+PASS: command available: id
+PASS: command available: getent
+PASS: command available: rc-update
+PASS: command available: rc-service
+PASS: command available: pgrep
+[2/9] Resolving target desktop user
+PASS: target user resolved: <USER> (<HOME>)
+[3/9] Validating required OpenRC services
+PASS: service script present: /etc/init.d/dbus
+PASS: service enabled in default runlevel: dbus
+PASS: service running: dbus
+PASS: service script present: /etc/init.d/elogind
+PASS: service enabled in default runlevel: elogind
+PASS: service running: elogind
+PASS: service script present: /etc/init.d/NetworkManager
+PASS: service enabled in default runlevel: NetworkManager
+PASS: service running: NetworkManager
+[3a/9] Reporting optional OpenRC services
+WARN: optional service not running: bluetoothd
+[4/9] Validating desktop runtime commands
+PASS: desktop runtime command available: polkit-gnome-authentication-agent-1
+PASS: desktop runtime command available: xdg-desktop-portal
+PASS: desktop runtime command available: xdg-desktop-portal-hyprland
+[5/9] Validating optional printing service state
+PASS: printing validation skipped by --expect-printing auto (profile selection is not inferred)
+[6/9] Validating session runtime stack
+PASS: Hyprland session detected for <USER>
+PASS: session process running: xdg-desktop-portal
+PASS: session process running: xdg-desktop-portal-hyprland
+PASS: session process running: pipewire
+PASS: session process running: wireplumber
+PASS: session process running: pipewire-pulse
+PASS: session process running: waybar
+PASS: session process running: mako
+[7/9] Validating Hyprland command dependencies
+PASS: Hyprland command available: /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+PASS: Hyprland command available: bash
+PASS: Hyprland command available: brightnessctl
+PASS: Hyprland command available: gnome-keyring-daemon
+PASS: Hyprland command available: hyprctl
+PASS: Hyprland command available: mako
+PASS: Hyprland command available: makoctl
+PASS: Hyprland command available: pamixer
+PASS: Hyprland command available: pipewire
+PASS: Hyprland command available: pipewire-pulse
+PASS: Hyprland command available: playerctl
+PASS: Hyprland command available: waybar
+PASS: Hyprland command available: wireplumber
+PASS: Hyprland command available: wl-paste
+[7a/9] Validating framework runtime commands
+PASS: framework command executable: ahr-menu
+PASS: framework command executable: ahr-launch-terminal
+PASS: framework command executable: ahr-launch-apps
+PASS: framework command executable: ahr-menu-keybindings
+PASS: framework command executable: ahr-launch-browser
+PASS: framework command executable: ahr-launch-files
+PASS: framework command executable: ahr-launch-bluetooth
+PASS: framework command executable: ahr-default-browser
+PASS: framework command executable: ahr-default-terminal
+PASS: framework command executable: ahr-repair
+PASS: framework command executable: ahr-system-lock
+PASS: framework command executable: ahr-toggle-idle
+PASS: framework command executable: ahr-toggle-waybar
+PASS: framework command executable: ahr-notification-dismiss
+PASS: framework command executable: ahr-launch-wallpaper-session
+PASS: framework command executable: ahr-theme-current
+PASS: framework command executable: ahr-restart-mako
+PASS: framework command executable: ahr-restart-waybar
+PASS: framework command executable: start-hyprland-session.sh
+PASS: installed framework doc present: quick-reference.md
+PASS: installed framework doc present: theme-assets.md
+PASS: default browser probe succeeded
+PASS: default terminal probe succeeded
+[7d/9] Validating default application MIME matrix
+PASS: default handler for application/gzip (archive) → org.gnome.FileRoller.desktop
+PASS: default handler for application/pdf (pdf) → app.zen_browser.zen.desktop
+PASS: default handler for application/x-7z-compressed (archive) → org.gnome.FileRoller.desktop
+PASS: default handler for application/x-bzip (archive) → org.gnome.FileRoller.desktop
+WARN: no default handler configured for application/x-bzip2 (category: archive)
+PASS: default handler for application/x-rar-compressed (archive) → org.gnome.FileRoller.desktop
+PASS: default handler for application/x-tar (archive) → org.gnome.FileRoller.desktop
+PASS: default handler for application/zip (archive) → org.gnome.FileRoller.desktop
+PASS: default handler for audio/flac (audio) → app.zen_browser.zen.desktop
+PASS: default handler for audio/mpeg (audio) → mpv.desktop
+PASS: default handler for audio/ogg (audio) → app.zen_browser.zen.desktop
+WARN: no default handler configured for audio/x-flac (category: audio)
+PASS: default handler for audio/x-vorbis (audio) → mpv.desktop
+PASS: default handler for audio/x-wav (audio) → mpv.desktop
+PASS: default handler for image/bmp (image) → imv-dir.desktop
+PASS: default handler for image/gif (image) → app.zen_browser.zen.desktop
+PASS: default handler for image/jpeg (image) → app.zen_browser.zen.desktop
+PASS: default handler for image/png (image) → app.zen_browser.zen.desktop
+PASS: default handler for image/tiff (image) → imv-dir.desktop
+PASS: default handler for image/webp (image) → app.zen_browser.zen.desktop
+PASS: default handler for inode/directory (directory) → codium.desktop
+PASS: default handler for text/html (browser) → app.zen_browser.zen.desktop
+PASS: default handler for text/markdown (editor) → org.onlyoffice.desktopeditors.desktop
+PASS: default handler for text/plain (editor) → org.onlyoffice.desktopeditors.desktop
+WARN: no default handler configured for text/x-markdown (category: editor)
+PASS: default handler for video/mp4 (video) → mpv.desktop
+PASS: default handler for video/ogg (video) → app.zen_browser.zen.desktop
+PASS: default handler for video/quicktime (video) → mpv.desktop
+PASS: default handler for video/webm (video) → app.zen_browser.zen.desktop
+PASS: default handler for video/x-matroska (video) → mpv.desktop
+PASS: default handler for video/x-msvideo (video) → mpv.desktop
+WARN: no default handler configured for x-directory/normal (category: directory)
+PASS: default handler for x-scheme-handler/http (browser) → app.zen_browser.zen.desktop
+PASS: default handler for x-scheme-handler/https (browser) → app.zen_browser.zen.desktop
+[7e/9] Validating advertised Capture/Setup actions
+PASS: Capture action available: Color Picker (hyprpicker)
+WARN: SwayOSD not installed (optional; volume/brightness/media controls do not depend on it)
+PASS: opt-in office profile installed: OnlyOffice
+PASS: Setup action available: default calculator command
+[7b/9] Validating wallpaper backend
+PASS: wallpaper backend available: swaybg
+[7c/9] Validating wallpaper runtime state
+PASS: theme state present: <HOME>/.config/artix-hypr-remix/current/theme.name
+PASS: wallpaper state symlink resolves to an image
+PASS: wallpaper runtime process running: swaybg
+[8/9] Validating startup mode state + launcher
+PASS: startup mode state: greetd
+PASS: session launcher executable: <HOME>/.config/artix-hypr-remix/bin/start-hyprland-session.sh
+[9/9] Validating mode-specific startup wiring
+PASS: greetd service script present
+PASS: greetd enabled in default runlevel
+PASS: greetd config exists: /etc/greetd/config.toml
+PASS: greetd boot-time fallback launcher exists: /etc/local.d/artix-hypr-remix-greetd.start
+PASS: greetd boot-time fallback launcher is executable
+PASS: OpenRC 'local' service is enabled in default runlevel
+PASS: greetd service is running
+
+Warnings:
+  - optional service not running: bluetoothd
+  - no default handler configured for application/x-bzip2 (category: archive)
+  - no default handler configured for audio/x-flac (category: audio)
+  - no default handler configured for text/x-markdown (category: editor)
+  - no default handler configured for x-directory/normal (category: directory)
+  - SwayOSD not installed (optional; volume/brightness/media controls do not depend on it)
+
+Post-install smoke passed.

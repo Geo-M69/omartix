@@ -1,0 +1,4 @@
+[2026-09-07 15:08:43] apply: starting
+[2026-09-07 15:09:49] rollback: starting
+[2026-09-07 15:09:52] rollback tx-EB26D1uj: restoration complete; post_rollback_health=degraded doctor_exit=1 evidence=<HOME>/.local/state/artix-hypr-remix/framework-transactions/tx-EB26D1uj/doctor.log
+[2026-09-07 15:10:37] apply: starting
